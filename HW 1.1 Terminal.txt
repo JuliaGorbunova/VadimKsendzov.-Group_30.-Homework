@@ -1,0 +1,122 @@
+HW_1. The first part
+Linux terminal (GitBash) commands
+Точка отсчета - запускаем GitBush из папки C:\Users\Юлия\Ksendzov
+1) Посмотреть где я  
+pwd
+
+2) Создать папку
+mkdir HW1.1
+
+3) Зайти в папку
+cd HW1.1 
+
+4) Создать 3 папки 
+mkdir qq{1..3}
+
+5) Зайти в любую папку
+cd qq1
+
+6) Создать 5 файлов (3 txt, 2 json)
+touch file{1..3}.txt file{4,5}.json
+
+7) Создать 3 папки 
+mkdir ww{1..3}
+
+8. Вывести список содержимого папки
+ls -la
+
+9) + Открыть любой txt файл
+cat file1.txt
+
+10) + написать туда что-нибудь, любой текст. 
+cat >> file1.txt
+hello,world!
+how are you?
+qwerty
+asdfgh
+zxcvbn
+123456
+qwertyu
+asdfghj
+dgrth drthvrt
+234t467456
+
+11) + сохранить и выйти 
+ctrl+c на клавиатуре
+
+12) Выйти из папки на уровень выше
+cd .. 
+
+13) переместить любые 2 файла, которые вы создали, в любую другую папку
+mv qq1/{file1.txt,file4.json} qq2/
+
+14) скопировать любые 2 файла, которые вы создали, в любую другую папку
+cp qq1/{file2.txt,file5.json} qq3/
+
+15) Найти файл по имени
+find -name "file2.txt"
+
+16) просмотреть содержимое в реальном времени (команда grep) изучите как она работает
+tail -f qq2/file1.txt | grep 23
+
+17) вывести несколько первых строк из текстового файла
+head -n3 qq2/file1.txt
+
+18) вывести несколько последних строк из текстового файла
+tail -n4 qq2/file1.txt
+
+19) просмотреть содержимое длинного файла (команда less) изучите как она работает
+less -5 qq2/file1.txt
+
+20) вывести дату и время
+date
+=========
+
+Задание *
+1) Отправить http запрос на сервер. http://162.55.220.72:5005/terminal-hw-request
+1.curl http://162.55.220.72:5005/terminal-hw-request
+2. Получаем ответ   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   283  100   283    0     0   2200      0 --:--:-- --:--:-- --:--:--  2210{
+  "Intro": "Hello!! This is your the first response from server",
+  "Tasks": {
+    "Task_1": "Send the next URL in terminal: http://162.55.220.72:5005/get_method?name=(set_your_String)&age=(set_your_number)",
+    "result": [
+      "Your_String",
+      "Your_number"
+    ]
+  }
+}
+3. Отправляем запрос curl "http://162.55.220.72:5005/get_method?name=Julia&age=28"
+4. Получаем ответ: % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    23  100    23    0     0    217      0 --:--:-- --:--:-- --:--:--   221[
+  "Julia",
+  "28"
+]
+2) Написать скрипт который выполнит автоматически пункты 3, 4, 5, 6, 7, 8, 13
+Создаем в директории C:\Users\Юлия\Ksendzov, создаем файл script.txt, помещаем в него текст:
+#!/bin/bash
+mkdir HW1.1test
+cd HW1.1test
+mkdir qq{1..3}
+cd qq1
+touch file{1..3}.txt file{4,5}.json
+mkdir ww{1..3}
+ls -la
+mv file1.txt file4.json ww2/
+после чего выходим, меняем расширение на .sh и запускаем файл
+
+ИЛИ
+
+в терминале находясь в этой же папке, выполняем команду:
+touch script2.sh
+Затем 
+vim script.sh
+Заходим в тестовый редактор, нажимаем Insert, вводим этот же текст, затем Escape, потом :wq для выхода.
+Далее в терминале запускаем:
+bash script.sh
+И скрипт выполняется.
+ 
+ 
+ 
